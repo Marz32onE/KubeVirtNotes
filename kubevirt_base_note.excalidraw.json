@@ -1,0 +1,48 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "Uh1Oeem3j92KBH0qg6bf2",
+      "type": "text",
+      "x": 20,
+      "y": 560,
+      "width": 905.5592041015625,
+      "height": 650,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 1188016955,
+      "version": 1465,
+      "versionNonce": 1549839189,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1724507436293,
+      "link": null,
+      "locked": false,
+      "text": "1. kubevirt could update with zero downtime\n- workloadUpdateStrategy:\n    workloadUpdateMethods:\n        - LiveMigrate\n2. Some feature need to be activate in feature gate\n- featureGates:\n    - LiveMigration\n3. kubevirt RBAC through label to clusterrole\nkubectl label clusterrole kubevirt.io:admin rbac.authorization.k8s.io/aggregate-to-admin=true\nkubectl label clusterrole kubevirt.io:edit rbac.authorization.k8s.io/aggregate-to-edit=true\nkubectl label clusterrole kubevirt.io:view rbac.authorization.k8s.io/aggregate-to-view=true\n4. KSM management allow de-duplication of memeory (CPU bound)\n- ksmConfiguration\n- kubevirt.io/ksm-enabled: \"true\"\n5. MigrationPolicy customize miration behaviour by namespace or VMI label\n- allowAutoConverge\n- bandwidthPerMigration\n- completionTimeoutPerGiB\n- allowPostCopy\n- max parallel migration\n6. use drain node to evict VM for node maintenance. use uncordon after eviction.\n- evictionStrategy: LiveMigrate (PDB based)\n7. Could use custom scheduler like Trimaran Schedulers for workload balance with VM label\n- schedulerName: my-scheduler\n8. virt-handler update kubevirt.io/schedulable and kubevirt.io/heartbeat when running\n- schedulabel=false -> node down after heartbeat timestamp > 5 min -> reschedule VM",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 643,
+      "containerId": null,
+      "originalText": "1. kubevirt could update with zero downtime\n- workloadUpdateStrategy:\n    workloadUpdateMethods:\n        - LiveMigrate\n2. Some feature need to be activate in feature gate\n- featureGates:\n    - LiveMigration\n3. kubevirt RBAC through label to clusterrole\nkubectl label clusterrole kubevirt.io:admin rbac.authorization.k8s.io/aggregate-to-admin=true\nkubectl label clusterrole kubevirt.io:edit rbac.authorization.k8s.io/aggregate-to-edit=true\nkubectl label clusterrole kubevirt.io:view rbac.authorization.k8s.io/aggregate-to-view=true\n4. KSM management allow de-duplication of memeory (CPU bound)\n- ksmConfiguration\n- kubevirt.io/ksm-enabled: \"true\"\n5. MigrationPolicy customize miration behaviour by namespace or VMI label\n- allowAutoConverge\n- bandwidthPerMigration\n- completionTimeoutPerGiB\n- allowPostCopy\n- max parallel migration\n6. use drain node to evict VM for node maintenance. use uncordon after eviction.\n- evictionStrategy: LiveMigrate (PDB based)\n7. Could use custom scheduler like Trimaran Schedulers for workload balance with VM label\n- schedulerName: my-scheduler\n8. virt-handler update kubevirt.io/schedulable and kubevirt.io/heartbeat when running\n- schedulabel=false -> node down after heartbeat timestamp > 5 min -> reschedule VM",
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "viewBackgroundColor": "#fffce8"
+  },
+  "files": {}
+}
